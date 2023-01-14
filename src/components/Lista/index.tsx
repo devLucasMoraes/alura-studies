@@ -1,18 +1,26 @@
 import React from "react";
 
 export default function Lista() {
+    const tarefas = [
+        {
+            nome: 'React',
+            tempo: '02:00:00' 
+        },
+        {
+            nome: 'Javascript',
+            tempo: '01:00:00'
+        }
+    ]
     return (
         <aside>
             <h2>Estudos do dia</h2>
             <ul>
-                <li>
-                    <h3>React</h3>
-                    <span>02:00:00</span>
-                </li>
-                <li>
-                    <h3>Javascript</h3>
-                    <span>01:00:00</span>
-                </li>
+                {tarefas.map((tarefa, index) => (
+                    <li key={index}>
+                        <h3>{tarefa.nome}</h3>
+                        <span>{tarefa.tempo}</span>
+                    </li>
+                ))}
             </ul>
         </aside>
 
