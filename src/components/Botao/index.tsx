@@ -1,7 +1,7 @@
 import React from "react";
 
 class Botao extends React.Component {
-    render() {
+    render(): React.ReactNode  {
         return (
             <button>
                 Botão
