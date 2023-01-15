@@ -23,7 +23,7 @@ export default function Formulario({novaTarefa} :FormularioProps){
             id: uuidv4()
         })
         setNomeDaTarefa('')
-        setTempoDaTarefa('')
+        setTempoDaTarefa('00:00:00')
     }
 
     return (
