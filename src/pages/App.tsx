@@ -26,7 +26,7 @@ function App() {
   return (
     <div className={styles.AppStyle}>
       <Formulario novaTarefa={tarefa => cadastrarTarefa(tarefa)}/>
-      <Cronometro />
+      <Cronometro selecionado={selecionado}/>
       <Lista tarefas={tarefas} aoSelecionarTarefa={aoSelecionarTarefa}/>
     </div>
   );
