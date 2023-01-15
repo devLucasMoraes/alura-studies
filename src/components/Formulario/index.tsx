@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Botao from "../Botao";
 import ITarefa from "../interfaces/ITarefa";
-import styles from './Formulario.module.scss'
+import styles from './Formulario.module.scss';
+import { v4 as uuidv4} from 'uuid';
 
 interface FormularioProps {
     novaTarefa: (tarefa: ITarefa) => void
@@ -16,7 +17,10 @@ export default function Formulario({novaTarefa} :FormularioProps){
         e.preventDefault()
         novaTarefa({
             tempo: tempoDaTarefa,
-            nome: nomeDaTarefa
+            nome: nomeDaTarefa,
+            selecionado: false,
+            completado: false,
+            id: uuidv4()
         })
         setNomeDaTarefa('')
         setTempoDaTarefa('')

@@ -1,15 +1,21 @@
+import ITarefa from '../../interfaces/ITarefa'
 import styles from '../Lista.module.scss'
 
-interface ItemProps {
-    nomeDaTarefa: string
-    tempoDaTarefa: string
+interface ItemProps extends ITarefa {
+    aoSelecionarTarefa: (tarefaSelecionada: ITarefa) => void
 }
 
-export default function Item({nomeDaTarefa, tempoDaTarefa} :ItemProps) {
+export default function Item({aoSelecionarTarefa, id, completado, nome, selecionado, tempo} :ItemProps) {
     return (
-        <li className={styles.item}>
-            <h3>{nomeDaTarefa}</h3>
-            <span>{tempoDaTarefa}</span>
+        <li className={`${styles.item} ${ selecionado ? styles.itemSelecionado : ""}`} onClick={() => aoSelecionarTarefa({
+            nome,
+            tempo,
+            selecionado,
+            completado,
+            id
+        })}>
+            <h3>{nome}</h3>
+            <span>{tempo}</span>
         </li>
     )
 }
