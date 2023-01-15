@@ -7,7 +7,8 @@ interface ItemProps extends ITarefa {
 
 export default function Item({aoSelecionarTarefa, id, completado, nome, selecionado, tempo} :ItemProps) {
     return (
-        <li className={`${styles.item} ${ selecionado ? styles.itemSelecionado : ""}`} onClick={() => aoSelecionarTarefa({
+        <li className={`${styles.item} ${ selecionado ? styles.itemSelecionado : ""} ${completado ? styles.itemCompletado : ""}`} 
+            onClick={() => !completado && aoSelecionarTarefa({
             nome,
             tempo,
             selecionado,
@@ -16,6 +17,7 @@ export default function Item({aoSelecionarTarefa, id, completado, nome, selecion
         })}>
             <h3>{nome}</h3>
             <span>{tempo}</span>
+            {completado && <span className={styles.concluido} aria-label="tarefa completada"></span>}
         </li>
     )
 }
